@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "SearchCountry", value = "/SearchCountry")
 public class SearchCountryServlet extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Client client = ClientBuilder.newClient();
 		Country country = client.target("http://restcountries.eu/rest/v2/capital/" + req.getParameter("capital"))
 				.request(MediaType.APPLICATION_JSON).get(Country[].class)[0];
